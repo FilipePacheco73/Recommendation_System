@@ -42,5 +42,3 @@ print(df_apriori)
 
 df_ar = association_rules(df_apriori, metric = 'confidence', min_threshold=0.6)
 print(df_ar)
-
-def be
