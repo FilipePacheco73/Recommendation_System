@@ -42,3 +42,11 @@ print(df_apriori)
 
 df_ar = association_rules(df_apriori, metric = 'confidence', min_threshold=0.6)
 print(df_ar)
+
+# antecedent support - The probability of seeing sugar sales is seen as 30%.
+# consequent support - The probability of seeing bread sales is seen as 65%.
+# support - We can say that the support of both of them is measured as 20%.
+# confidence - 67% of those who buys sugar, buys bread as well.
+# lift - Users who buy sugar will likely consume 3% more bread than users who don’t buy sugar.
+# leverage - indicates independecy of happening - 0 is independency
+# Conviction - correlation - 1 is completly uncorrelated
