@@ -21,7 +21,7 @@ from mlxtend.preprocessing import TransactionEncoder
 df = pd.read_csv("GroceryStoreDataSet.csv", names = ['products'], sep=',')
 
 print(df.head()) # see the first 5 instances
-print(df.shape) # check the dimensions of the data
+print('\n',df.shape,'\n') # check the dimensions of the data
 
 # Split the lines into columns
 data = list(df['products'].apply(lambda x:x.split(",")))
@@ -31,8 +31,6 @@ aux = TransactionEncoder() # create object
 aux_data = aux.fit(data).transform(data) # transform data into One-Hot Encoding
 
 df = pd.DataFrame(aux_data,columns=aux.columns_) # recreate the original dataframe with a new structure to be applied by the Apriori Algorithm
-df = df.replace(False,0)
-df = df.replace(True,1)
 
 # Applying Apriori Algorithm
 df_apriori = apriori(df, min_support = 0.2, use_colnames = True, verbose = True)
